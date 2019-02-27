@@ -1,0 +1,27 @@
+{
+    "name": "kritik94/diff-calculator",
+    "bin": ["bin/gendiff"],
+    "type": "project",
+    "license": "MIT",
+    "keywords": ["cli", "diff"],
+    "description": "cli utility for calculate diff",
+    "authors": [
+        {
+            "name": "Nikita Arkhipov",
+            "email": "niktyper13@gmail.com"
+        }
+    ],
+    "scripts": {
+        "phpcs": "phpcs",
+        "phpmd": "phpmd"
+    },
+    "autoload": {
+        "files": []
+    },
+    "require": {
+        "docopt/docopt": "1.0.2"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "3.4.0"
+    }
+}
