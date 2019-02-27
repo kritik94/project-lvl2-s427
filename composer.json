@@ -16,7 +16,9 @@
         "phpmd": "phpmd"
     },
     "autoload": {
-        "files": []
+        "files": [
+            "src/main.php"
+        ]
     },
     "require": {
         "docopt/docopt": "1.0.2"

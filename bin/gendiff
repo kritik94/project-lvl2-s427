@@ -9,21 +9,4 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-const DOCOPT = <<<DOC
-Generate diff
-
-Usage:
-  gendiff (-h|--help)
-  gendiff [--format <fmt>] <firstFile> <secondFile>
-
-Options:
-  -h --help                     Show this screen
-  --format <fmt>                Report format [default: pretty]
-DOC;
-
-function main()
-{
-    Docopt::handle(DOCOPT);
-}
-
-main();
+\DiffCalculator\main();
