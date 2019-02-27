@@ -18,5 +18,9 @@ DOC;
 
 function main()
 {
-    Docopt::handle(DOCOPT);
+    $args = Docopt::handle(DOCOPT);
+
+    $result = genDiff($args['<firstFile>'], $args['<secondFile>']);
+
+    echo $result . PHP_EOL;
 }
