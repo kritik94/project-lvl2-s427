@@ -14,3 +14,10 @@ composer global require "kritik94/diff-calculator"
 
 [![asciicast](https://asciinema.org/a/BVslWQzuS5R4rSfXp1Znlj8pw.svg)](https://asciinema.org/a/BVslWQzuS5R4rSfXp1Znlj8pw)
 
+Generate difference for json files
+
+```
+gendiff before.json after.json
+```
+
+[![asciicast](https://asciinema.org/a/AZRhrfNOXltlLOklhtZqbSLBL.svg)](https://asciinema.org/a/AZRhrfNOXltlLOklhtZqbSLBL)
