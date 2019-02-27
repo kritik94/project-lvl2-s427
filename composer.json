@@ -13,17 +13,23 @@
     ],
     "scripts": {
         "phpcs": "phpcs",
-        "phpmd": "phpmd"
+        "phpunit": "phpunit"
     },
     "autoload": {
         "files": [
-            "src/main.php"
-        ]
+            "src/main.php",
+            "src/genDiff.php"
+        ],
+        "psr-4": {
+            "DiffCalculator\\Tests\\": "tests"
+        }
     },
     "require": {
         "docopt/docopt": "1.0.2"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "3.4.0"
+        "squizlabs/php_codesniffer": "3.4.0",
+        "phpunit/phpunit": "8.0.4",
+        "psy/psysh": "0.9.9"
     }
 }
