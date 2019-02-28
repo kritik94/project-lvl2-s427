@@ -20,4 +20,12 @@ Generate difference for json files
 gendiff before.json after.json
 ```
 
-[![asciicast](https://asciinema.org/a/AZRhrfNOXltlLOklhtZqbSLBL.svg)](https://asciinema.org/a/AZRhrfNOXltlLOklhtZqbSLBL)
+[![asciicast](https://asciinema.org/a/4DsZWYaZ8Fq1AStfAyWGDLX8r.svg)](https://asciinema.org/a/4DsZWYaZ8Fq1AStfAyWGDLX8r)
+
+And for yaml works too
+
+```
+gendiff before.yml after.yml
+```
+
+[![asciicast](https://asciinema.org/a/FV4onXT5VWLIQXrloqgH9O2Ri.svg)](https://asciinema.org/a/FV4onXT5VWLIQXrloqgH9O2Ri)
