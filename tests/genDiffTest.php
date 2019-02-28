@@ -6,12 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class GenDiffTest extends TestCase
 {
-    /**
-     * @dataProvider exampleProvider
-     **/
-    public function testDiff($beforeFilepath, $afterFilepath): void
-    {
-        $expect = <<<DIFF
+    protected $expect = <<<DIFF
 {
     host: hexlet.io
   + timeout: 20
@@ -21,9 +16,14 @@ class GenDiffTest extends TestCase
 }
 DIFF;
 
-        $actual = \DiffCalculator\genDiff($beforeFilepath, $afterFilepath);
+    /**
+     * @dataProvider exampleProvider
+     **/
+    public function testDiff($beforeFilepath, $afterFilepath): void
+    {
+        $actual = \DiffCalculator\Diff\genDiff($beforeFilepath, $afterFilepath);
 
-        $this->assertEquals($expect, $actual);
+        $this->assertEquals($this->expect, $actual);
     }
 
     public function exampleProvider()

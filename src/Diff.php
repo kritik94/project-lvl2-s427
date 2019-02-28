@@ -1,14 +1,14 @@
 <?php
 
-namespace DiffCalculator;
+namespace DiffCalculator\Diff;
 
-use function DiffCalculator\Reader\buildData;
-use function DiffCalculator\Formatter\prettyValue;
+use function DiffCalculator\Parser\parseFromFile;
+use function DiffCalculator\Format\prettifyValue;
 
 function genDiff($beforeFilepath, $afterFilepath)
 {
-    $before = buildData($beforeFilepath);
-    $after = buildData($afterFilepath);
+    $before = parseFromFile($beforeFilepath);
+    $after = parseFromFile($afterFilepath);
 
     $merged = array_merge($before, $after);
 
@@ -30,18 +30,18 @@ function genDiff($beforeFilepath, $afterFilepath)
     $resultParts = array_map(function ($type, $key) use ($before, $after) {
         switch ($type) {
             case 'unchanged':
-                return sprintf('    %s: %s', $key, prettyValue($before[$key]));
+                return sprintf('    %s: %s', $key, prettifyValue($before[$key]));
             case 'added':
-                return sprintf('  + %s: %s', $key, prettyValue($after[$key]));
+                return sprintf('  + %s: %s', $key, prettifyValue($after[$key]));
             case 'deleted':
-                return sprintf('  - %s: %s', $key, prettyValue($before[$key]));
+                return sprintf('  - %s: %s', $key, prettifyValue($before[$key]));
             case 'changed':
                 return sprintf(
                     '  + %s: %s' . PHP_EOL . '  - %s: %s',
                     $key,
-                    prettyValue($after[$key]),
+                    prettifyValue($after[$key]),
                     $key,
-                    prettyValue($before[$key])
+                    prettifyValue($before[$key])
                 );
         }
     }, $diffInfo, array_keys($merged), $merged);

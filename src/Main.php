@@ -1,8 +1,9 @@
 <?php
 
-namespace DiffCalculator;
+namespace DiffCalculator\Main;
 
 use Docopt;
+use function DiffCalculator\Diff\genDiff;
 
 const DOCOPT = <<<DOC
 Generate diff

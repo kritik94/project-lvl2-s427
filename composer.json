@@ -17,10 +17,10 @@
     },
     "autoload": {
         "files": [
-            "src/main.php",
-            "src/genDiff.php",
-            "src/Formatter/prettyValue.php",
-            "src/Reader/buildData.php"
+            "src/Main.php",
+            "src/Diff.php",
+            "src/Format.php",
+            "src/Parser.php"
         ],
         "psr-4": {
             "DiffCalculator\\Tests\\": "tests"

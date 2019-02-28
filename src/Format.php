@@ -1,8 +1,8 @@
 <?php
 
-namespace DiffCalculator\Formatter;
+namespace DiffCalculator\Format;
 
-function prettyValue($value)
+function prettifyValue($value)
 {
     if (is_bool($value)) {
         return $value ? 'true' : 'false';
