@@ -6,11 +6,11 @@ use PHPUnit\Framework\TestCase;
 
 class GenDiffTest extends TestCase
 {
-    public function testJsonDiff(): void
+    /**
+     * @dataProvider exampleProvider
+     **/
+    public function testDiff($beforeFilepath, $afterFilepath): void
     {
-        $beforeFilepath = __DIR__ . '/examples/example1-before.json';
-        $afterFilepath = __DIR__ . '/examples/example1-after.json';
-
         $expect = <<<DIFF
 {
     host: hexlet.io
@@ -24,5 +24,19 @@ DIFF;
         $actual = \DiffCalculator\genDiff($beforeFilepath, $afterFilepath);
 
         $this->assertEquals($expect, $actual);
+    }
+
+    public function exampleProvider()
+    {
+        return [
+            [
+                __DIR__ . '/examples/example1-before.json',
+                __DIR__ . '/examples/example1-after.json'
+            ],
+            [
+                __DIR__ . '/examples/example1-before.yml',
+                __DIR__ . '/examples/example1-after.yml'
+            ],
+        ];
     }
 }

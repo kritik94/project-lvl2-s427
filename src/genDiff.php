@@ -2,13 +2,13 @@
 
 namespace DiffCalculator;
 
+use function DiffCalculator\Reader\buildData;
+use function DiffCalculator\Formatter\prettyValue;
+
 function genDiff($beforeFilepath, $afterFilepath)
 {
-    $beforeContent = file_get_contents($beforeFilepath);
-    $afterContent = file_get_contents($afterFilepath);
-
-    $before = json_decode($beforeContent, true);
-    $after = json_decode($afterContent, true);
+    $before = buildData($beforeFilepath);
+    $after = buildData($afterFilepath);
 
     $merged = array_merge($before, $after);
 
@@ -47,13 +47,4 @@ function genDiff($beforeFilepath, $afterFilepath)
     }, $diffInfo, array_keys($merged), $merged);
 
     return implode(PHP_EOL, array_merge(['{'], $resultParts, ['}']));
-}
-
-function prettyValue($value)
-{
-    if (is_bool($value)) {
-        return $value ? 'true' : 'false';
-    }
-
-    return $value;
 }

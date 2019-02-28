@@ -18,14 +18,17 @@
     "autoload": {
         "files": [
             "src/main.php",
-            "src/genDiff.php"
+            "src/genDiff.php",
+            "src/Formatter/prettyValue.php",
+            "src/Reader/buildData.php"
         ],
         "psr-4": {
             "DiffCalculator\\Tests\\": "tests"
         }
     },
     "require": {
-        "docopt/docopt": "1.0.2"
+        "docopt/docopt": "1.0.2",
+        "symfony/yaml": "4.2.3"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "3.4.0",
