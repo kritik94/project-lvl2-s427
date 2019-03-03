@@ -5,16 +5,6 @@ namespace DiffCalculator\Parser;
 use Exception;
 use Symfony\Component\Yaml\Yaml;
 
-function parseFromFile($filepath)
-{
-    $parts = explode('.', $filepath);
-    $extension = $parts[count($parts) - 1];
-
-    $content = file_get_contents($filepath);
-
-    return parse($content, $extension);
-}
-
 function parse($content, $format)
 {
     switch ($format) {

@@ -2,13 +2,19 @@
 
 namespace DiffCalculator\Diff;
 
-use function DiffCalculator\Parser\parseFromFile;
+use function DiffCalculator\Parser\parse;
 use function DiffCalculator\Format\prettifyValue;
 
 function genDiff($beforeFilepath, $afterFilepath)
 {
-    $before = parseFromFile($beforeFilepath);
-    $after = parseFromFile($afterFilepath);
+    $beforeRaw = file_get_contents($beforeFilepath);
+    $afterRaw = file_get_contents($afterFilepath);
+
+    $parts = explode('.', $beforeFilepath);
+    $extension = $parts[count($parts) - 1];
+
+    $before = parse($beforeRaw, $extension);
+    $after = parse($afterRaw, $extension);
 
     $merged = array_merge($before, $after);
 

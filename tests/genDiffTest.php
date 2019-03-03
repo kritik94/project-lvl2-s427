@@ -4,26 +4,17 @@ namespace DiffCalculator\Tests;
 
 use PHPUnit\Framework\TestCase;
 
-class GenDiffTest extends TestCase
+class DiffTest extends TestCase
 {
-    protected $expect = <<<DIFF
-{
-    host: hexlet.io
-  + timeout: 20
-  - timeout: 50
-  - proxy: 123.234.53.22
-  + verbose: true
-}
-DIFF;
-
     /**
      * @dataProvider exampleProvider
      **/
-    public function testDiff($beforeFilepath, $afterFilepath): void
+    public function testLinearDiff($beforeFilepath, $afterFilepath, $resultFilepath): void
     {
+        $expect = file_get_contents($resultFilepath);
         $actual = \DiffCalculator\Diff\genDiff($beforeFilepath, $afterFilepath);
 
-        $this->assertEquals($this->expect, $actual);
+        $this->assertEquals($expect, $actual);
     }
 
     public function exampleProvider()
@@ -31,11 +22,13 @@ DIFF;
         return [
             [
                 __DIR__ . '/examples/example1-before.json',
-                __DIR__ . '/examples/example1-after.json'
+                __DIR__ . '/examples/example1-after.json',
+                __DIR__ . '/examples/example1-result',
             ],
             [
                 __DIR__ . '/examples/example1-before.yml',
-                __DIR__ . '/examples/example1-after.yml'
+                __DIR__ . '/examples/example1-after.yml',
+                __DIR__ . '/examples/example1-result',
             ],
         ];
     }
